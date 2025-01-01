@@ -10,12 +10,13 @@ import numpy as np
 
 def func1(list1):
     for i in list1:
-        yield i
+        res = yield i
+        print('res:',res)
 
 if __name__ == '__main__':
     list1 = [1,2,3,4]
     r = func1(list1)
-    print(r)
+    # print(r)
     print(next(r))
     print(next(r))
     print(next(r))

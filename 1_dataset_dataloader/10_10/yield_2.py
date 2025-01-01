@@ -38,7 +38,7 @@ def get_dataset(all_text, all_label, batch_size, shuffle):
     for i in range(batch_time):
         batch_text = all_text[i * batch_size:(i+1) * batch_size]
         batch_label = all_label[i * batch_size:(i+1) * batch_size]
-        yield batch_text,batch_label
+        yield batch_text,batch_label # yield关键字，返回一个生成器函数
 
 
 if __name__ == '__main__':
@@ -54,6 +54,6 @@ if __name__ == '__main__':
 
     for epoch in range(epochs):
         dataset = get_dataset(train_text, train_label, batch_size, shuffle=True) # 生成器，返回一个可迭代对象
-        print(dataset)
+        print('dataset:',dataset)
         for batch_idx,batch_label in dataset:
             print(batch_idx,batch_label)
