@@ -8,7 +8,7 @@ class MyDataset(object):
         self.batch_size = batch_size
         self.shuffle = shuffle
 
-        assert len(self.all_text) == len(self.all_label)   # 预先assert
+        assert len(self.all_text) == len(self.all_label)   # 预先assert,断言
 
     # def __getitem__(self,index):
     #     # print('len(self)')

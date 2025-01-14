@@ -64,7 +64,7 @@ class DataLoader(object):
             np.random.shuffle(self.shuffle_index)
 
     def __getitem__(self, index):
-        global max_len , word_2_index
+        global max_len , word_2_index # 声明全局变量
         # 先裁剪， word --> index , 填充
         text = self.dataset.all_text[index][:max_len] # 先进行裁剪，如果长度超了不会报错
         text_idx = [word_2_index[i] for i in text]  # 转换成index
@@ -105,6 +105,7 @@ if __name__ == '__main__':
     for epoch in range(epochs):
         print('*' * 20)
         for batch_text,batch_text_idx,batch_label in train_dataset:
-            # print(batch_text,batch_text_idx.shape,batch_label)
+            print('batch_text:')
+            print(batch_text,batch_text_idx.shape,batch_label)
             pre = model.forward(batch_text_idx)
             print(pre)
