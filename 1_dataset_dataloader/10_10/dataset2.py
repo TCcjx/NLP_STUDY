@@ -37,7 +37,7 @@ class DataLoader(object):
         if self.cursor >= len(self.dataset):
             raise StopIteration
 
-        index = self.shuffle_index[self.cursor : self.cursor + self.dataset.batch_size]
+        index = self.shuffle_index[self.cursor : self.cursor + self.dataset.batch_size] # 切片操作，不用担心越界
         text  = self.dataset.all_text[index]
         label = self.dataset.all_label[index]
 

@@ -25,11 +25,11 @@ class MyDataset:
         else:
             return None, None
 
-    def __iter__(self):
+    def __iter__(self): # 初始执行__iter__ ,返回一个__next__()对象
         self.cursor = 0 # 记录光标
-        self.shuffle_index = [i for i in range(len(self))]
-
+        print('执行__iter__函数')
         if self.shuffle == True:
+            self.shuffle_index = [i for i in range(len(self))]
             np.random.shuffle(self.shuffle_index)
 
         return self
