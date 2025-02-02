@@ -19,7 +19,7 @@ class MyDataset:
 
 
     def __iter__(self):
-        return DataLoader(self)
+        return DataLoader(self)  # 迭代器，返回一个一个具有__next__的对象
 
     def __len__(self):
         return len(self.all_text)
