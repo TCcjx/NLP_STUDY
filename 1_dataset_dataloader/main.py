@@ -30,7 +30,7 @@ class MyDataset(object):
 class MyDataLoader(object):
     def __init__(self,dataset):
         # print(dataset)
-        self.cursor = 0  #
+        self.cursor = 0
         self.dataset = dataset
         self.shuffle_index = np.arange(len(dataset))
 
