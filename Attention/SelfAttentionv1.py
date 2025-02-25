@@ -14,7 +14,7 @@ import warnings
 warnings.filterwarnings(action="ignore")
 
 class SelfAttentionV1(nn.Module):
-    def __init__(self,hidden_dim):
+    def __init__(self,hidden_dim:int=728) -> None:
         super(SelfAttentionV1, self).__init__()
         self.hidden_dim = hidden_dim
 

@@ -18,7 +18,7 @@ warnings.filterwarnings(action='ignore')
 
 class SelfAttentionV3(nn.Module):
 
-    def __init__(self, dim, dropout_rate = 0.1):
+    def __init__(self, dim, dropout_rate = 0.1)->None:
         super(SelfAttentionV3, self).__init__()
         self.dim = dim
 
@@ -33,9 +33,9 @@ class SelfAttentionV3(nn.Module):
         Q,K,V = torch.split(QKV,self.dim,dim=-1)
         attention_weight = Q @ K.transpose(-1,-2) / math.sqrt(self.dim)
 
-        if attention_mask is not None:  # (bs,sq,sq)
+        if attention_mask is not None:  # (bs,sq,sq) 注意力掩码矩阵
             attention_weight =  attention_weight.masked_fill(
-                attention_mask == 0,float(-1e20)
+                attention_mask == 0,float('-inf')
             )
         attention_weight = torch.softmax(
             attention_weight,
